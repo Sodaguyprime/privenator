@@ -40,7 +40,7 @@ The build order is in [SPEC.md](SPEC.md#build-order). Update this file whenever 
 - **Search (8):** FTS5 with stemming and prefix matching, highlighted snippets, filters for date range, mood and tag.
 - **Backup (9):** `.vjbak` create (journal password or separate passphrase) and restore (from the welcome screen, or in Settings with a typed confirmation); the backup reminder notice.
 - **Settings:** idle timeout, microphone, default audio choice, change password, regenerate recovery key, backup, reminder, restore.
-- **Packaging (10):** the model is bundled as a resource; `npm run tauri build` makes NSIS and MSI installers. `npm run fetch-model` fetches the model for development. The README (2026-10-27) points downloads at GitHub Releases on `Sodaguyprime/privenator`; the repo and first release are not published yet.
+- **Packaging (10):** the model is bundled as a resource; `npm run tauri build` makes NSIS and MSI installers. `npm run fetch-model` fetches the model for development. v0.1.0 (NSIS + MSI, unsigned) was published 2026-10-27 as a GitHub Release on `Sodaguyprime/privenator`; the README links there.
 - 43 integration tests at the seams in ARCHITECTURE.md "Testing", all passing. Clippy and ESLint are clean; the frontend type-checks and builds.
 
 ## Deferred / known gaps
