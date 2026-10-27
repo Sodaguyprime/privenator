@@ -1,0 +1,64 @@
+@import "tailwindcss";
+@import "./theme.css";
+@import "./ornaments.css";
+
+/*
+ * Base layer. Design rules live in docs/DESIGN.md; tokens in theme.css.
+ */
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.625;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Desktop-app feel: no text selection on chrome; entries opt back in. */
+    user-select: none;
+    scrollbar-color: var(--color-border) transparent;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+    color: var(--color-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-default);
+  }
+
+  input,
+  textarea,
+  [contenteditable] {
+    user-select: text;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

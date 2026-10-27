@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Source for every app icon. Regenerate with: npx tauri icon src-tauri/icons/source.svg -->
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2E241E"/>
+      <stop offset="1" stop-color="#1C1714"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#C9A962" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#C9A962" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="leather" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#A3303F"/>
+      <stop offset="0.55" stop-color="#8B2635"/>
+      <stop offset="1" stop-color="#5E1822"/>
+    </linearGradient>
+    <linearGradient id="spine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4A121B"/>
+      <stop offset="0.6" stop-color="#6E1D29"/>
+      <stop offset="1" stop-color="#5A1720"/>
+    </linearGradient>
+    <linearGradient id="pages" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#D9CBB6"/>
+      <stop offset="1" stop-color="#B9A88F"/>
+    </linearGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E2C985"/>
+      <stop offset="0.5" stop-color="#C9A962"/>
+      <stop offset="1" stop-color="#9C7B33"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Mahogany tile -->
+  <rect x="40" y="40" width="944" height="944" rx="200" fill="url(#tile)"/>
+  <rect x="40" y="40" width="944" height="944" rx="200" fill="url(#glow)"/>
+  <rect x="58" y="58" width="908" height="908" rx="184" fill="none" stroke="#4A3F35" stroke-width="4"/>
+
+  <g filter="url(#shadow)">
+    <!-- Page block peeking out on the right and bottom -->
+    <path d="M300 214 H742 a22 22 0 0 1 22 22 V804 a22 22 0 0 1 -22 22 H300 Z" fill="url(#pages)"/>
+    <g stroke="#A08E74" stroke-width="3" opacity="0.7">
+      <line x1="300" y1="812" x2="748" y2="812"/>
+      <line x1="300" y1="800" x2="750" y2="800"/>
+      <line x1="750" y1="236" x2="750" y2="790"/>
+    </g>
+
+    <!-- Cover -->
+    <rect x="262" y="196" width="470" height="606" rx="18" fill="url(#leather)"/>
+    <!-- Spine band -->
+    <rect x="262" y="196" width="74" height="606" rx="18" fill="url(#spine)"/>
+    <rect x="320" y="196" width="16" height="606" fill="#000" opacity="0.18"/>
+    <!-- Spine ribs -->
+    <g fill="#C9A962" opacity="0.85">
+      <rect x="270" y="270" width="58" height="8" rx="4"/>
+      <rect x="270" y="720" width="58" height="8" rx="4"/>
+    </g>
+
+    <!-- Blind-tooled border on the cover -->
+    <rect x="372" y="244" width="312" height="510" rx="6" fill="none" stroke="#C9A962" stroke-width="5" opacity="0.55"/>
+    <rect x="388" y="260" width="280" height="478" rx="4" fill="none" stroke="#5E1822" stroke-width="3" opacity="0.8"/>
+
+    <!-- Centre medallion: a quill-nib star -->
+    <g transform="translate(528 430)">
+      <circle r="70" fill="none" stroke="#C9A962" stroke-width="5" opacity="0.9"/>
+      <path d="M0 -44 L11 -11 L44 0 L11 11 L0 44 L-11 11 L-44 0 L-11 -11 Z" fill="url(#brass)"/>
+    </g>
+
+    <!-- Brass corner protectors -->
+    <path d="M732 196 V268 L660 196 Z" fill="url(#brass)" transform="translate(0 0)"/>
+    <path d="M732 802 V730 L660 802 Z" fill="url(#brass)"/>
+
+    <!-- Strap and clasp -->
+    <rect x="690" y="560" width="96" height="74" rx="10" fill="#6E1D29"/>
+    <rect x="690" y="560" width="96" height="74" rx="10" fill="none" stroke="#4A121B" stroke-width="4"/>
+    <rect x="704" y="548" width="92" height="98" rx="14" fill="url(#brass)"/>
+    <rect x="714" y="558" width="72" height="78" rx="9" fill="none" stroke="#9C7B33" stroke-width="4"/>
+    <!-- Keyhole -->
+    <circle cx="750" cy="588" r="11" fill="#1C1714"/>
+    <path d="M744 594 L756 594 L760 620 L740 620 Z" fill="#1C1714"/>
+
+    <!-- Ribbon bookmark -->
+    <path d="M592 794 V900 L614 878 L636 900 V794 Z" fill="#C9A962"/>
+    <path d="M592 794 V900 L614 878 L636 900 V794 Z" fill="#000" opacity="0.12"/>
+  </g>
+</svg>

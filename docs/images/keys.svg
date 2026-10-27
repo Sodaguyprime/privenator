@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" width="1200" height="470" role="img" aria-labelledby="t d">
+  <title id="t">How the keys fit together</title>
+  <desc id="d">Your password (through Argon2id) or your recovery key (through HKDF) unwraps one random data key. The data key opens the encrypted journal database and the recording secret key. A separate recording public key lets a recording keep saving while the journal is locked.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#c9a962"/>
+    </marker>
+    <style>
+      .box { fill: #251e19; stroke: #4a3f35; stroke-width: 1.5; }
+      .key { fill: #2e2519; stroke: #c9a962; stroke-width: 1.5; }
+      .h { font: 600 13px Cinzel, Georgia, serif; letter-spacing: 2.5px; fill: #c9a962; }
+      .b { font: 18px 'Crimson Pro', Georgia, serif; fill: #e8dfd4; }
+      .s { font: 14px 'Crimson Pro', Georgia, serif; fill: #9c8b7a; }
+      .flow { stroke: #c9a962; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .dim { stroke: #9c8b7a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1200" height="470" rx="12" fill="#1c1714"/>
+  <text x="40" y="44" class="h">ONE KEY, TWO WAYS IN</text>
+
+  <!-- inputs -->
+  <g transform="translate(40 70)">
+    <rect class="box" width="230" height="90" rx="6"/>
+    <text x="20" y="34" class="h">YOUR PASSWORD</text>
+    <text x="20" y="62" class="s">12+ characters, in your head</text>
+  </g>
+  <g transform="translate(40 230)">
+    <rect class="box" width="230" height="90" rx="6"/>
+    <text x="20" y="34" class="h">RECOVERY KEY</text>
+    <text x="20" y="62" class="s">shown once, kept on paper</text>
+  </g>
+
+  <path class="flow" d="M272 115 C 340 115, 340 180, 420 185"/>
+  <text x="300" y="104" class="s">Argon2id</text>
+  <path class="flow" d="M272 275 C 340 275, 340 210, 420 205"/>
+  <text x="300" y="300" class="s">HKDF-SHA256</text>
+
+  <!-- DEK -->
+  <g transform="translate(424 140)">
+    <rect class="key" width="240" height="110" rx="6"/>
+    <g transform="translate(34 55)" fill="none" stroke="#c9a962" stroke-width="3" stroke-linecap="round">
+      <circle r="11"/><path d="M11 0h26M29 0v9M37 0v7"/>
+    </g>
+    <text x="90" y="46" class="h">DATA KEY</text>
+    <text x="90" y="72" class="s">random 256 bits,</text>
+    <text x="90" y="90" class="s">unwrapped only in RAM</text>
+  </g>
+
+  <path class="flow" d="M666 175 H 820"/>
+  <path class="flow" d="M666 215 C 740 215, 740 300, 820 300"/>
+
+  <!-- outputs -->
+  <g transform="translate(824 120)">
+    <rect class="box" width="336" height="100" rx="6"/>
+    <text x="20" y="36" class="h">JOURNAL DATABASE</text>
+    <text x="20" y="64" class="s">entries, tags, search index:</text>
+    <text x="20" y="82" class="s">all inside SQLCipher</text>
+  </g>
+  <g transform="translate(824 250)">
+    <rect class="box" width="336" height="100" rx="6"/>
+    <text x="20" y="36" class="h">RECORDING SECRET KEY</text>
+    <text x="20" y="64" class="s">opens audio and drafts written</text>
+    <text x="20" y="82" class="s">by the recording public key</text>
+  </g>
+
+  <!-- lock behaviour -->
+  <path d="M40 380 H 1160" stroke="#4a3f35"/>
+  <text x="40" y="414" class="b">On lock, the data key and secret key are wiped from memory.</text>
+  <text x="40" y="440" class="s">A recording in progress keeps saving to its public key, so it can't be read until you unlock again.</text>
+</svg>

@@ -1,0 +1,50 @@
+[workspace]
+resolver = "3"
+members = ["crates/journal-core", "src-tauri"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "UNLICENSED"
+
+# Profiles only take effect at the workspace root.
+# See https://tauri.app/concept/size/#cargo-configuration
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+panic = "abort"
+strip = true
+
+# Argon2id at production cost takes seconds when unoptimized; keep dev unlocks
+# close to release timing.
+[profile.dev.package.argon2]
+opt-level = 3
+[profile.dev.package.blake2]
+opt-level = 3
+[profile.dev.package.chacha20poly1305]
+opt-level = 3
+
+# Full debug info made target/ ~8 GB. Line tables keep usable backtraces for
+# our code; dependencies get none.
+[profile.dev]
+debug = "line-tables-only"
+[profile.dev.package."*"]
+debug = false
+
+# whisper.cpp is C++ built through cmake; opt-level 3 makes the cmake crate
+# build it in Release, otherwise dev transcription is many times slower.
+[profile.dev.package.whisper-rs-sys]
+opt-level = 3
+
+# The mic callback resamples on the audio thread; unoptimized, it falls behind
+# and WASAPI reports overruns. libopus (cmake, like whisper) encodes on the
+# recorder thread.
+[profile.dev.package.rubato]
+opt-level = 3
+[profile.dev.package.realfft]
+opt-level = 3
+[profile.dev.package.rustfft]
+opt-level = 3
+[profile.dev.package.opusic-sys]
+opt-level = 3

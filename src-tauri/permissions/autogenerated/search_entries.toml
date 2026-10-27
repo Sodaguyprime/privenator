@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-search-entries"
+description = "Enables the search_entries command without any pre-configured scope."
+commands.allow = ["search_entries"]
+
+[[permission]]
+identifier = "deny-search-entries"
+description = "Denies the search_entries command without any pre-configured scope."
+commands.deny = ["search_entries"]

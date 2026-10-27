@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-set-entry-title"
+description = "Enables the set_entry_title command without any pre-configured scope."
+commands.allow = ["set_entry_title"]
+
+[[permission]]
+identifier = "deny-set-entry-title"
+description = "Denies the set_entry_title command without any pre-configured scope."
+commands.deny = ["set_entry_title"]

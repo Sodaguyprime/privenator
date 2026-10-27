@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" role="img" aria-labelledby="t d">
+  <title id="t">Privenator</title>
+  <desc id="d">A private voice journal. Speak, and it is transcribed and sealed on your own computer.</desc>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="45%" r="65%">
+      <stop offset="0" stop-color="#2a221c"/>
+      <stop offset="1" stop-color="#1c1714"/>
+    </radialGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d4b872"/>
+      <stop offset="1" stop-color="#b8953f"/>
+    </linearGradient>
+    <radialGradient id="wax" cx="40%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#a8344a"/>
+      <stop offset="1" stop-color="#6e1a28"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="360" rx="12" fill="url(#glow)"/>
+  <rect x="24" y="24" width="1152" height="312" fill="none" stroke="#4a3f35"/>
+  <!-- brass corner brackets -->
+  <path d="M24 72V24h48M1176 288v48h-48" fill="none" stroke="#c9a962" stroke-width="3"/>
+
+  <!-- sound wave turning into lines of text -->
+  <g transform="translate(140 180)" fill="#c9a962">
+    <rect x="-60" y="-8" width="6" height="16" rx="3" opacity=".35"/>
+    <rect x="-48" y="-20" width="6" height="40" rx="3" opacity=".5"/>
+    <rect x="-36" y="-34" width="6" height="68" rx="3" opacity=".7"/>
+    <rect x="-24" y="-22" width="6" height="44" rx="3" opacity=".85"/>
+    <rect x="-12" y="-44" width="6" height="88" rx="3"/>
+    <rect x="0" y="-28" width="6" height="56" rx="3"/>
+    <rect x="12" y="-14" width="6" height="28" rx="3" opacity=".85"/>
+  </g>
+  <g transform="translate(1000 180)">
+    <circle r="62" fill="url(#wax)"/>
+    <circle r="50" fill="none" stroke="#e8dfd4" stroke-opacity=".25" stroke-width="2"/>
+    <!-- padlock -->
+    <rect x="-18" y="-4" width="36" height="28" rx="4" fill="none" stroke="#e8dfd4" stroke-width="4"/>
+    <path d="M-11 -4v-10a11 11 0 0 1 22 0v10" fill="none" stroke="#e8dfd4" stroke-width="4"/>
+    <circle cy="10" r="3.5" fill="#e8dfd4"/>
+  </g>
+  <!-- dotted path wave → seal -->
+  <path d="M190 180 H 330 M 870 180 H 920" stroke="#4a3f35" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+
+  <text x="600" y="110" text-anchor="middle" font-family="Cinzel, 'Trajan Pro', Georgia, serif" font-size="15" letter-spacing="6" fill="#c9a962">EX LIBRIS · PRIVENATOR</text>
+  <text x="600" y="185" text-anchor="middle" font-family="'Cormorant Garamond', Garamond, Georgia, serif" font-size="64" fill="#e8dfd4">Privenator</text>
+  <path d="M470 215 H 585 M 615 215 H 730" stroke="#c9a962" stroke-opacity=".6"/>
+  <text x="600" y="221" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#c9a962">❧</text>
+  <text x="600" y="262" text-anchor="middle" font-family="'Crimson Pro', Georgia, serif" font-size="22" font-style="italic" fill="#9c8b7a">A voice journal that keeps its own counsel.</text>
+  <text x="600" y="294" text-anchor="middle" font-family="'Crimson Pro', Georgia, serif" font-size="17" fill="#9c8b7a">Offline · Encrypted · Transcribed on your own machine</text>
+</svg>

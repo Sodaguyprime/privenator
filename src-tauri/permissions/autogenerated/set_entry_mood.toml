@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-set-entry-mood"
+description = "Enables the set_entry_mood command without any pre-configured scope."
+commands.allow = ["set_entry_mood"]
+
+[[permission]]
+identifier = "deny-set-entry-mood"
+description = "Denies the set_entry_mood command without any pre-configured scope."
+commands.deny = ["set_entry_mood"]

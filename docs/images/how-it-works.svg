@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-labelledby="t d">
+  <title id="t">How a recording becomes an entry</title>
+  <desc id="d">Your voice goes from the microphone through a pause detector and the Whisper speech model, all on your computer, and is written straight into an encrypted journal. Nothing crosses the network boundary.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#c9a962"/>
+    </marker>
+    <style>
+      .box { fill: #251e19; stroke: #4a3f35; stroke-width: 1.5; }
+      .hot { stroke: #c9a962; }
+      .h { font: 600 13px Cinzel, Georgia, serif; letter-spacing: 2.5px; fill: #c9a962; }
+      .b { font: 17px 'Crimson Pro', Georgia, serif; fill: #e8dfd4; }
+      .s { font: 14px 'Crimson Pro', Georgia, serif; fill: #9c8b7a; }
+      .flow { stroke: #c9a962; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1200" height="420" rx="12" fill="#1c1714"/>
+
+  <!-- the device boundary -->
+  <rect x="24" y="52" width="1152" height="300" rx="10" fill="none" stroke="#c9a962" stroke-opacity=".5" stroke-dasharray="6 6"/>
+  <rect x="44" y="40" width="250" height="24" fill="#1c1714"/>
+  <text x="56" y="57" class="h">YOUR COMPUTER ONLY</text>
+
+  <!-- 1 mic -->
+  <g transform="translate(60 120)">
+    <rect class="box" width="170" height="170" rx="6"/>
+    <g transform="translate(85 58)" fill="none" stroke="#c9a962" stroke-width="3" stroke-linecap="round">
+      <rect x="-10" y="-26" width="20" height="36" rx="10"/>
+      <path d="M-20 0a20 20 0 0 0 40 0M0 20v10"/>
+    </g>
+    <text x="85" y="120" text-anchor="middle" class="h">I · LISTEN</text>
+    <text x="85" y="144" text-anchor="middle" class="s">mic → 16 kHz mono</text>
+  </g>
+
+  <!-- 2 segmenter -->
+  <g transform="translate(290 120)">
+    <rect class="box" width="170" height="170" rx="6"/>
+    <g transform="translate(30 58)" fill="#c9a962">
+      <rect x="0" y="-6" width="5" height="12" rx="2"/><rect x="9" y="-18" width="5" height="36" rx="2"/><rect x="18" y="-10" width="5" height="20" rx="2"/><rect x="27" y="-22" width="5" height="44" rx="2"/>
+      <rect x="36" y="-1" width="30" height="2" opacity=".35"/>
+      <rect x="70" y="-14" width="5" height="28" rx="2"/><rect x="79" y="-24" width="5" height="48" rx="2"/><rect x="88" y="-8" width="5" height="16" rx="2"/><rect x="97" y="-16" width="5" height="32" rx="2"/><rect x="106" y="-4" width="5" height="8" rx="2"/>
+    </g>
+    <text x="85" y="120" text-anchor="middle" class="h">II · SPLIT</text>
+    <text x="85" y="144" text-anchor="middle" class="s">cut at natural pauses</text>
+  </g>
+
+  <!-- 3 whisper -->
+  <g transform="translate(520 120)">
+    <rect class="box hot" width="170" height="170" rx="6"/>
+    <text x="85" y="66" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="38" font-style="italic" fill="#e8dfd4">Aa</text>
+    <text x="85" y="120" text-anchor="middle" class="h">III · WRITE</text>
+    <text x="85" y="144" text-anchor="middle" class="s">Whisper, offline</text>
+  </g>
+
+  <!-- 4 seal -->
+  <g transform="translate(750 120)">
+    <rect class="box" width="170" height="170" rx="6"/>
+    <g transform="translate(85 52)">
+      <circle r="28" fill="#8b2635"/>
+      <rect x="-10" y="-2" width="20" height="16" rx="2" fill="none" stroke="#e8dfd4" stroke-width="2.5"/>
+      <path d="M-6 -2v-6a6 6 0 0 1 12 0v6" fill="none" stroke="#e8dfd4" stroke-width="2.5"/>
+    </g>
+    <text x="85" y="120" text-anchor="middle" class="h">IV · SEAL</text>
+    <text x="85" y="144" text-anchor="middle" class="s">XChaCha20-Poly1305</text>
+  </g>
+
+  <!-- 5 journal -->
+  <g transform="translate(980 120)">
+    <rect class="box" width="170" height="170" rx="6"/>
+    <g transform="translate(85 52)" fill="none" stroke="#c9a962" stroke-width="2.5">
+      <path d="M-30 -24h26a6 6 0 0 1 4 2 6 6 0 0 1 4-2h26v46h-26a6 6 0 0 0-4 2 6 6 0 0 0-4-2h-26z"/>
+      <path d="M0 -22v46"/>
+    </g>
+    <text x="85" y="120" text-anchor="middle" class="h">V · KEEP</text>
+    <text x="85" y="144" text-anchor="middle" class="s">SQLCipher journal</text>
+  </g>
+
+  <path class="flow" d="M232 205 H 286"/>
+  <path class="flow" d="M462 205 H 516"/>
+  <path class="flow" d="M692 205 H 746"/>
+  <path class="flow" d="M922 205 H 976"/>
+
+  <text x="600" y="92" text-anchor="middle" class="b">Text appears as you speak, a moment behind your voice.</text>
+
+  <!-- the network, crossed out -->
+  <g transform="translate(600 388)">
+    <text x="0" y="0" text-anchor="middle" class="s">No accounts · no cloud · no network access. The speech model ships inside the installer.</text>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-mic-test-start"
+description = "Enables the mic_test_start command without any pre-configured scope."
+commands.allow = ["mic_test_start"]
+
+[[permission]]
+identifier = "deny-mic-test-start"
+description = "Denies the mic_test_start command without any pre-configured scope."
+commands.deny = ["mic_test_start"]

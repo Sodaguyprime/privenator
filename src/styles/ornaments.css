@@ -1,0 +1,140 @@
+/*
+ * Decorative pieces Tailwind can't express. Every ornament is aria-hidden
+ * in markup. Usage rules (where each may appear) are in docs/DESIGN.md.
+ */
+@layer components {
+  /* Fixed atmosphere: paper grain + vignette. One element each, app-wide. */
+  .paper-grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.03;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .vignette {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 49;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 0%,
+      transparent 50%,
+      rgb(28 23 20 / 0.4) 100%
+    );
+  }
+
+  /* Brass corner brackets. --flourish sets the size (40px frames, 24px cards). */
+  .flourish {
+    position: relative;
+    --flourish: 24px;
+  }
+  .flourish-lg {
+    --flourish: 40px;
+  }
+  .flourish::before,
+  .flourish::after {
+    content: "";
+    position: absolute;
+    width: var(--flourish);
+    height: var(--flourish);
+    border: 2px solid var(--color-accent);
+    opacity: 0.6;
+    pointer-events: none;
+    transition: opacity var(--duration-slow) var(--ease-classical);
+  }
+  .flourish-lg::before,
+  .flourish-lg::after {
+    opacity: 1;
+  }
+  .flourish::before {
+    top: -1px;
+    left: -1px;
+    border-right: none;
+    border-bottom: none;
+  }
+  .flourish::after {
+    bottom: -1px;
+    right: -1px;
+    border-left: none;
+    border-top: none;
+  }
+  .flourish:hover::before,
+  .flourish:hover::after {
+    opacity: 1;
+  }
+  @media (width < 48rem) {
+    .flourish-lg {
+      --flourish: 24px;
+    }
+  }
+
+  /* Gradient rule with a centred glyph: <div class="ornate-divider" data-glyph="❧"> */
+  .ornate-divider {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-border) 20%,
+      var(--color-accent) 50%,
+      var(--color-border) 80%,
+      transparent 100%
+    );
+  }
+  .ornate-divider::before {
+    content: attr(data-glyph);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 12px;
+    font-size: 12px;
+    line-height: 1;
+    color: var(--color-accent);
+    background: var(--bg-behind, var(--color-background));
+  }
+
+  /* Illuminated first letter for an entry's opening paragraph. */
+  .drop-cap::first-letter {
+    float: left;
+    margin: 0.06em 0.12em 0 0;
+    font-family: var(--font-display);
+    font-size: 4.5rem;
+    line-height: 0.8;
+    color: var(--color-accent);
+    text-shadow: 2px 2px 4px rgb(0 0 0 / 0.3);
+  }
+
+  .engraved {
+    text-shadow:
+      1px 1px 1px rgb(0 0 0 / 0.4),
+      -1px -1px 1px rgb(255 255 255 / 0.1);
+  }
+
+  .inscription {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--color-accent);
+  }
+
+  /* Crimson wax seal. Used for exactly one thing: the recording indicator. */
+  .wax-seal {
+    display: grid;
+    place-items: center;
+    border-radius: 9999px;
+    color: var(--color-foreground);
+    background: radial-gradient(circle at 35% 30%, #a83244 0%, #8b2635 45%, #5e1822 100%);
+    box-shadow: var(--shadow-wax);
+  }
+
+  .arch-top {
+    border-radius: 40% 40% 0 0 / 20% 20% 0 0;
+  }
+}

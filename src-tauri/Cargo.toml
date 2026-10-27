@@ -1,0 +1,24 @@
+[package]
+name = "privenator"
+description = "Private, offline voice journal"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+# The `_lib` suffix avoids a bin/lib name clash on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "privenator_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+# No Tauri plugins on purpose: no http, updater, shell or opener (docs/SPEC.md, "Network lockdown").
+[dependencies]
+journal-core = { path = "../crates/journal-core" }
+rfd = "0.17"
+secrecy = "0.10"
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+zeroize = "1"

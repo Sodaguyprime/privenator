@@ -1,0 +1,42 @@
+/*
+ * Design tokens: Academia / Classical ("library at night").
+ * Single source of truth for colour, type, radius and motion. Values are
+ * mirrored in docs/DESIGN.md so the Android app can reproduce them.
+ * Tailwind v4 turns each --color-* / --font-* / --radius-* into utilities
+ * (bg-background, text-accent, font-display, rounded-default, ...).
+ */
+@theme {
+  --color-background: #1c1714; /* deep mahogany */
+  --color-background-alt: #251e19; /* aged oak: cards, panels */
+  --color-foreground: #e8dfd4; /* antique parchment */
+  --color-muted: #3d332b; /* worn leather */
+  --color-muted-foreground: #9c8b7a; /* faded ink */
+  --color-border: #4a3f35; /* wood grain */
+  --color-accent: #c9a962; /* polished brass: every interactive element */
+  --color-accent-bright: #d4b872;
+  --color-accent-deep: #b8953f;
+  --color-accent-secondary: #8b2635; /* library crimson: sparing emphasis */
+  --color-accent-foreground: #1c1714; /* text on brass */
+  --color-error: #d98a95; /* crimson ink: readable error text on mahogany (crimson itself is too dark for text) */
+
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Crimson Pro", Georgia, serif;
+  --font-display: "Cinzel", Georgia, serif;
+
+  --radius-default: 4px;
+
+  --ease-classical: cubic-bezier(0.22, 0.61, 0.36, 1); /* ease-out */
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+  --duration-dramatic: 700ms;
+
+  --shadow-lift: 0 8px 24px rgb(0 0 0 / 0.3);
+  --shadow-engraved:
+    inset 0 1px 0 rgb(255 255 255 / 0.2), inset 0 -1px 0 rgb(0 0 0 / 0.2),
+    0 2px 8px rgb(0 0 0 / 0.3);
+  --shadow-brass-glow: 0 4px 12px rgb(201 169 98 / 0.3);
+  --shadow-wax:
+    inset 0 2px 4px rgb(255 255 255 / 0.2), inset 0 -2px 4px rgb(0 0 0 / 0.3),
+    0 4px 8px rgb(0 0 0 / 0.4);
+}
